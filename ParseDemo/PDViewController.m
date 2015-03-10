@@ -7,8 +7,18 @@
 //
 
 #import "PDViewController.h"
+#import "Entry.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+
+static NSString * const entryNameKey = @"name";
 
 @interface PDViewController ()
+
+@property (nonatomic, strong) PFUser *currentUser;
+
+@property (nonatomic, strong) IBOutlet UITextField *objectNameField;
+@property (nonatomic, strong) IBOutlet UILabel *objectNameLabel;
 
 @end
 
@@ -17,13 +27,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)storeObject:(id)sender {
+
+}
+
+- (IBAction)retrieveObject:(id)sender {
+
+}
+
+- (IBAction)signIn:(id)sender {
+
+}
+
+- (IBAction)signUp:(id)sender {
+
+}
+
+- (void)addUserData {
+
 }
 
 @end

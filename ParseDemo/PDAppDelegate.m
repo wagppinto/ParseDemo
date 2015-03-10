@@ -7,12 +7,21 @@
 //
 
 #import "PDAppDelegate.h"
+#import "Entry.h"
+#import <Parse/Parse.h>
 
 @implementation PDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    [Entry registerSubclass];
+    [Parse enableLocalDatastore];
+
+    [Parse setApplicationId:@"---"
+                  clientKey:@"---"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     return YES;
 }
 							
