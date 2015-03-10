@@ -9,10 +9,11 @@
 #import "PDViewController.h"
 #import "Entry.h"
 #import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 static NSString * const entryNameKey = @"name";
 
-@interface PDViewController () // <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
+@interface PDViewController () <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 
 @property (nonatomic, strong) PFUser *currentUser;
 
