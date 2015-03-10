@@ -35,18 +35,18 @@ static NSString * const entryNameKey = @"name";
 //    [entry setObject:self.objectNameField.text forKey:entryNameKey];
 
 //    Using Subclassed object
-//    Entry *entry = [Entry object];
-//    entry.name = self.objectNameField.text;
+    Entry *entry = [Entry object];
+    entry.name = self.objectNameField.text;
     
-//    // This could be done in the background, but I want to update the UI immediately
-//    NSError *error = nil;
-//    
-//    [entry pin];
-//    [entry save:&error];
-//
-//    if (error) {
-//        NSLog(@"%@", error.localizedDescription);
-//    }
+    // This could be done in the background, but I want to update the UI immediately
+    NSError *error = nil;
+    
+    [entry pin];
+    [entry save:&error];
+
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
 
 }
 
@@ -56,79 +56,79 @@ static NSString * const entryNameKey = @"name";
 //    PFQuery *query = [PFQuery queryWithClassName:[Entry parseClassName]];
 
 //    Using subclass class method
-//    PFQuery *query = [Entry query];
+    PFQuery *query = [Entry query];
 
-//    // This could be done in the background, but I want to update the UI immediately
-//    NSArray *objects = [query findObjects];
-//    
-//    if (objects.count > 0) {
-//        PFObject *object = objects.lastObject;
-//        self.objectNameLabel.text = [object objectForKey:entryNameKey];
-//    }
+    // This could be done in the background, but I want to update the UI immediately
+    NSArray *objects = [query findObjects];
+    
+    if (objects.count > 0) {
+        PFObject *object = objects.lastObject;
+        self.objectNameLabel.text = [object objectForKey:entryNameKey];
+    }
 
 }
 
 - (IBAction)signIn:(id)sender {
 
-//    PFLogInViewController *logIn = [PFLogInViewController new];
-//    logIn.delegate = self;
-//    [self presentViewController:logIn animated:YES completion:nil];
+    PFLogInViewController *logIn = [PFLogInViewController new];
+    logIn.delegate = self;
+    [self presentViewController:logIn animated:YES completion:nil];
     
 }
 
 - (IBAction)signUp:(id)sender {
 
-//    PFSignUpViewController *signUp = [PFSignUpViewController new];
-//    signUp.delegate = self;
-//    [self presentViewController:signUp animated:YES completion:nil];
+    PFSignUpViewController *signUp = [PFSignUpViewController new];
+    signUp.delegate = self;
+    [self presentViewController:signUp animated:YES completion:nil];
 
 }
 
 
 // Delegate methods for authentication view controllers
 
-//- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-//    self.currentUser = user;
-//    
-//    [self addUserData];
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    
-//}
-//
-//- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
-//    self.currentUser = user;
-//    
-//    [self addUserData];
-//    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    
-//}
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    self.currentUser = user;
+    
+    [self addUserData];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    self.currentUser = user;
+    
+    [self addUserData];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 - (void)addUserData {
 
-//    PFQuery *query = [PFQuery queryWithClassName:@"yourData"];
-//    
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        
-//        if ([objects count] == 0) {
-//            
-//            PFObject *yourData = [PFObject objectWithClassName:@"yourData"];
-//            yourData[@"dictionaryKey"] = @"dictionaryValue";
-//            
-//            // If there is a current user you can set that user as the only user that can access this object:
-//            if (self.currentUser) {
-//                yourData.ACL = [PFACL ACLWithUser:self.currentUser];
-//            }
-//            
-//            [yourData saveInBackground];
-//            
-//        } else {
-//            
-//            NSLog(@"You already stored your data");
-//        }
-//    
-//    }];
+    PFQuery *query = [PFQuery queryWithClassName:@"yourData"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if ([objects count] == 0) {
+            
+            PFObject *yourData = [PFObject objectWithClassName:@"yourData"];
+            yourData[@"dictionaryKey"] = @"dictionaryValue";
+            
+            // If there is a current user you can set that user as the only user that can access this object:
+            if (self.currentUser) {
+                yourData.ACL = [PFACL ACLWithUser:self.currentUser];
+            }
+            
+            [yourData saveInBackground];
+            
+        } else {
+            
+            NSLog(@"You already stored your data");
+        }
+    
+    }];
     
 }
 
