@@ -7,9 +7,9 @@
 //
 
 #import "PDViewController.h"
+#import "Entry.h"
 #import <Parse/Parse.h>
 
-static NSString * const entryClassName = @"Entry";
 static NSString * const entryNameKey = @"name";
 
 @interface PDViewController () // <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
@@ -30,11 +30,18 @@ static NSString * const entryNameKey = @"name";
 
 - (IBAction)storeObject:(id)sender {
 
-//    PFObject *entry = [PFObject objectWithClassName:entryClassName];
+//    Using generic type
+//    PFObject *entry = [PFObject objectWithClassName:[Entry parseClassName]];
 //    [entry setObject:self.objectNameField.text forKey:entryNameKey];
-//
+
+//    Using Subclassed object
+//    Entry *entry = [Entry object];
+//    entry.name = self.objectNameField.text;
+    
 //    // This could be done in the background, but I want to update the UI immediately
 //    NSError *error = nil;
+//    
+//    [entry pin];
 //    [entry save:&error];
 //
 //    if (error) {
@@ -45,8 +52,12 @@ static NSString * const entryNameKey = @"name";
 
 - (IBAction)retrieveObject:(id)sender {
 
-//    PFQuery *query = [PFQuery queryWithClassName:entryClassName];
-//
+//    Using generic type
+//    PFQuery *query = [PFQuery queryWithClassName:[Entry parseClassName]];
+
+//    Using subclass class method
+//    PFQuery *query = [Entry query];
+
 //    // This could be done in the background, but I want to update the UI immediately
 //    NSArray *objects = [query findObjects];
 //    

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FA134FE1AAEFFD200D32741 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA134FD1AAEFFD200D32741 /* Entry.m */; };
+		4FA135001AAF00BD00D32741 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA134FF1AAF00BD00D32741 /* libsqlite3.dylib */; };
+		4FA135021AAF00EE00D32741 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA135011AAF00EE00D32741 /* ParseUI.framework */; };
+		4FA135041AAF00F700D32741 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA135031AAF00F700D32741 /* Bolts.framework */; };
 		711DB5BF195B638D00111390 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711DB5BE195B638D00111390 /* Foundation.framework */; };
 		711DB5C1195B638D00111390 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711DB5C0195B638D00111390 /* CoreGraphics.framework */; };
 		711DB5C3195B638D00111390 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 711DB5C2195B638D00111390 /* UIKit.framework */; };
@@ -47,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4FA134FC1AAEFFD200D32741 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		4FA134FD1AAEFFD200D32741 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		4FA134FF1AAF00BD00D32741 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		4FA135011AAF00EE00D32741 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		4FA135031AAF00F700D32741 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		711DB5BB195B638D00111390 /* ParseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		711DB5BE195B638D00111390 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		711DB5C0195B638D00111390 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,6 +95,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA135021AAF00EE00D32741 /* ParseUI.framework in Frameworks */,
+				4FA135041AAF00F700D32741 /* Bolts.framework in Frameworks */,
+				4FA135001AAF00BD00D32741 /* libsqlite3.dylib in Frameworks */,
 				711DB60C195B64DA00111390 /* Accounts.framework in Frameworks */,
 				711DB60A195B64CE00111390 /* Social.framework in Frameworks */,
 				711DB608195B64C500111390 /* Twitter.framework in Frameworks */,
@@ -140,6 +152,9 @@
 		711DB5BD195B638D00111390 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FA135031AAF00F700D32741 /* Bolts.framework */,
+				4FA135011AAF00EE00D32741 /* ParseUI.framework */,
+				4FA134FF1AAF00BD00D32741 /* libsqlite3.dylib */,
 				711DB60B195B64DA00111390 /* Accounts.framework */,
 				711DB609195B64CE00111390 /* Social.framework */,
 				711DB607195B64C500111390 /* Twitter.framework */,
@@ -167,6 +182,8 @@
 				711DB5CD195B638D00111390 /* PDAppDelegate.h */,
 				711DB5CE195B638D00111390 /* PDAppDelegate.m */,
 				711DB5D0195B638D00111390 /* Main.storyboard */,
+				4FA134FC1AAEFFD200D32741 /* Entry.h */,
+				4FA134FD1AAEFFD200D32741 /* Entry.m */,
 				711DB5D3195B638D00111390 /* PDViewController.h */,
 				711DB5D4195B638D00111390 /* PDViewController.m */,
 				711DB5D6195B638D00111390 /* Images.xcassets */,
@@ -302,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA134FE1AAEFFD200D32741 /* Entry.m in Sources */,
 				711DB5CF195B638D00111390 /* PDAppDelegate.m in Sources */,
 				711DB5D5195B638D00111390 /* PDViewController.m in Sources */,
 				711DB5CB195B638D00111390 /* main.m in Sources */,
@@ -517,6 +535,7 @@
 				711DB5EF195B638D00111390 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		711DB5F0195B638D00111390 /* Build configuration list for PBXNativeTarget "ParseDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +544,7 @@
 				711DB5F2195B638D00111390 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

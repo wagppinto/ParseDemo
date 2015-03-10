@@ -7,12 +7,16 @@
 //
 
 #import "PDAppDelegate.h"
+#import "Entry.h"
 #import <Parse/Parse.h>
 
 @implementation PDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    [Entry registerSubclass];
+    [Parse enableLocalDatastore];
 
     [Parse setApplicationId:@"mfr0V12p7nitm19BYBEHmBQOaA2WisIIJFxzABaJ"
                   clientKey:@"jm2QZw8XGwDduuhf9SviN4KGt07vRtdoJBJj8O8C"];
