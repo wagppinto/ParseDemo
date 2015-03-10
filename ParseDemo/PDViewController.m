@@ -9,9 +9,15 @@
 #import "PDViewController.h"
 #import <Parse/Parse.h>
 
+static NSString * const entryClassName = @"Entry";
+static NSString * const entryNameKey = @"name";
+
 @interface PDViewController () <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 
 @property (nonatomic, strong) PFUser *currentUser;
+
+@property (nonatomic, strong) IBOutlet UITextField *objectNameField;
+@property (nonatomic, strong) IBOutlet UILabel *objectNameLabel;
 
 @end
 
@@ -20,6 +26,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (IBAction)storeObject:(id)sender {
+
+    PFObject *entry = [PFObject objectWithClassName:entryClassName];
+    [entry setObject:self.objectNameField.text forKey:entryNameKey];
+
+    // This could be done in the background, but I want to update the UI immediately
+    NSError *error = nil;
+    [entry save:&error];
+
+    if (error) {
+        NSLog(@"%@", error.localizedDescription);
+    }
+}
+
+- (IBAction)retrieveObject:(id)sender {
+
+    PFQuery *query = [PFQuery queryWithClassName:entryClassName];
+
+    // This could be done in the background, but I want to update the UI immediately
+    NSArray *objects = [query findObjects];
+    
+    if (objects.count > 0) {
+        PFObject *object = objects.lastObject;
+        self.objectNameLabel.text = [object objectForKey:entryNameKey];
+    }
 }
 
 - (IBAction)signIn:(id)sender {
@@ -35,13 +68,11 @@
     PFSignUpViewController *signUp = [PFSignUpViewController new];
     signUp.delegate = self;
     [self presentViewController:signUp animated:YES completion:nil];
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
+// Delegate methods for authentication view controllers
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     self.currentUser = user;
@@ -64,6 +95,7 @@
 - (void)addUserData {
 
     PFQuery *query = [PFQuery queryWithClassName:@"yourData"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if ([objects count] == 0) {
